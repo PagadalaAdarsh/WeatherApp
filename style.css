@@ -1,0 +1,96 @@
+/* Full-screen background */
+body {
+    font-family: Arial, sans-serif;
+    background: url('WeatherImg.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+/* Main container */
+.container {
+    width: 90%;
+    max-width: 500px;
+}
+
+/* Weather info box with glassmorphism effect */
+.weather-box {
+    background: rgba(15, 191, 214, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+    transition: background-color 0.5s ease; /* Smooth color transition */
+}
+
+h1 {
+    font-size: 50px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 28px;
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+p {
+    font-size: 18px;
+}
+
+/* Weather icon */
+#weatherIcon {
+    width: 100px;
+    height: 100px;
+    margin: 10px auto;
+    display: block;
+}
+
+/* Search Box */
+.search-box {
+    display: flex;
+    justify-content: center;
+}
+
+input {
+    padding: 12px;
+    font-size: 16px;
+    width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+button {
+    padding: 12px 20px;
+    font-size: 16px;
+    background: rgb(25, 193, 202);
+    color: #fff;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #1aa3a3;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 40px;
+    }
+    h2 {
+        font-size: 24px;
+    }
+    p {
+        font-size: 16px;
+    }
+}
