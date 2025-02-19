@@ -34,6 +34,7 @@ document.getElementById("cityInput").addEventListener("input", function () {
 
 async function getWeather() {
     const apiKey = "fb2ad586cb872f38a3f00086045d8a7d";
+    const unsplashAccessKey = "1YjvseB9sdYC4ncWo1Kw4ovI5SX6m654v0JOV8KQvEI";
     const cityInput = document.getElementById("cityInput");
     const city = cityInput.value.trim();
 
@@ -78,8 +79,25 @@ async function getWeather() {
         // **Smooth Transition Effect**
         weatherBox.style.transition = "background-color 0.5s ease-in-out";
 
+        // **Update Background Image Based on City**
+        updateBackground(city, unsplashAccessKey);
+
     } catch (error) {
         alert("Error fetching weather data.");
         console.error(error);
+    }
+}
+
+async function updateBackground(city, unsplashAccessKey) {
+    try {
+        const unsplashUrl = `https://api.unsplash.com/photos/random?query=${city}&client_id=${unsplashAccessKey}`;
+        const response = await fetch(unsplashUrl);
+        const data = await response.json();
+
+        if (data && data.urls && data.urls.regular) {
+            document.body.style.backgroundImage = `url('${data.urls.regular}')`;
+        }
+    } catch (error) {
+        console.error("Error fetching city background image:", error);
     }
 }
